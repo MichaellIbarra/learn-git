@@ -1,0 +1,11 @@
+key: value
+person:
+  name: Matichelo
+  age: 19
+  country: Perú
+hobby:
+  - programming
+  - reading
+scripts: |
+  echo "Hello, World!"
+  echo "Goodbye, World!"
