@@ -1,1 +1,1 @@
-# learn-git
+# lean-programming

@@ -1,0 +1,27 @@
+name: Test 2 Workflow
+
+# on: [push, pull_request]
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+on:
+  workflow_dispatch:
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: matichelo17@
+          MYSQL_DATABASE: msvc_user
+        ports:
+          - 3306:3306
+    steps:
+      - name: Hello World
+        run: echo "Hello, World!"

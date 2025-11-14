@@ -1,0 +1,57 @@
+name: Test 1 Workflow
+
+# on: [push, pull_request]
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+#events:
+on:
+  workflow_dispatch:
+jobs:
+  # job
+  build:
+    # run
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Hello World
+      run: echo "Hello, World!"
+    
+    - name: create file
+      run: touch test.txt
+
+    - name: set text to file
+      run: echo "Hello, World!" > test.txt
+    
+    - name: read file
+      run: cat test.txt
+
+  other:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: List files
+      run: ls -al
+    ####################################
+    # - name: Execute script.sh
+    #   run: |
+    #     chmod +x ./learn-git/script.sh
+    #     ./learn-git/script.sh
+    ####################################
+    # - name: Setup Node.js environment
+    #   uses: actions/setup-node@v4.2.0
+    # - name: Node Version
+    #   run: node --version
+    ####################################
+    - name: My Action
+      uses: ./.github/actions/my-action
+      with:
+        message: "Matichelo"
+    - name: Goodbye World
+      run: echo "Goodbye, World!"
